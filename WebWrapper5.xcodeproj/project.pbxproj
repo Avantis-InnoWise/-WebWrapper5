@@ -7,12 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD74C7B028095C350012A0B3 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD74C7AF28095C350012A0B3 /* Assembly.swift */; };
+		AD74C7B228095C450012A0B3 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD74C7B128095C450012A0B3 /* Interactor.swift */; };
+		AD74C7B628095C5B0012A0B3 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD74C7B528095C5B0012A0B3 /* Presenter.swift */; };
+		AD74C7B828095E190012A0B3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD74C7B728095E190012A0B3 /* main.swift */; };
+		AD74C7BC280960A70012A0B3 /* AppInfo.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD74C7BB280960A70012A0B3 /* AppInfo.strings */; };
 		ADE45D2F28082CF100FE8C0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE45D2E28082CF100FE8C0C /* AppDelegate.swift */; };
 		ADE45D3128082CF100FE8C0C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE45D3028082CF100FE8C0C /* ViewController.swift */; };
 		ADE45D3328082CF200FE8C0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADE45D3228082CF200FE8C0C /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AD74C7AF28095C350012A0B3 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
+		AD74C7B128095C450012A0B3 /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
+		AD74C7B528095C5B0012A0B3 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
+		AD74C7B728095E190012A0B3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		AD74C7BB280960A70012A0B3 /* AppInfo.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = AppInfo.strings; sourceTree = "<group>"; };
 		ADE45D2B28082CF100FE8C0C /* WebWrapper5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebWrapper5.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADE45D2E28082CF100FE8C0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADE45D3028082CF100FE8C0C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -31,6 +41,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AD74C7AE28095C170012A0B3 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				AD74C7AF28095C350012A0B3 /* Assembly.swift */,
+				AD74C7B128095C450012A0B3 /* Interactor.swift */,
+				AD74C7B528095C5B0012A0B3 /* Presenter.swift */,
+				ADE45D3028082CF100FE8C0C /* ViewController.swift */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
 		ADE45D2228082CF100FE8C0C = {
 			isa = PBXGroup;
 			children = (
@@ -50,10 +71,12 @@
 		ADE45D2D28082CF100FE8C0C /* WebWrapper5 */ = {
 			isa = PBXGroup;
 			children = (
+				AD74C7AE28095C170012A0B3 /* Scene */,
 				ADE45D2E28082CF100FE8C0C /* AppDelegate.swift */,
-				ADE45D3028082CF100FE8C0C /* ViewController.swift */,
 				ADE45D3228082CF200FE8C0C /* Assets.xcassets */,
 				ADE45D3728082CF200FE8C0C /* WebWrapper5.entitlements */,
+				AD74C7B728095E190012A0B3 /* main.swift */,
+				AD74C7BB280960A70012A0B3 /* AppInfo.strings */,
 			);
 			path = WebWrapper5;
 			sourceTree = "<group>";
@@ -117,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADE45D3328082CF200FE8C0C /* Assets.xcassets in Resources */,
+				AD74C7BC280960A70012A0B3 /* AppInfo.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,7 +151,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD74C7B628095C5B0012A0B3 /* Presenter.swift in Sources */,
 				ADE45D3128082CF100FE8C0C /* ViewController.swift in Sources */,
+				AD74C7B828095E190012A0B3 /* main.swift in Sources */,
+				AD74C7B028095C350012A0B3 /* Assembly.swift in Sources */,
+				AD74C7B228095C450012A0B3 /* Interactor.swift in Sources */,
 				ADE45D2F28082CF100FE8C0C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
