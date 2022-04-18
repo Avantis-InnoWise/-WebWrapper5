@@ -16,11 +16,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // MARK: - Private Properties
 
     private var contentRect: NSRect {
-        return NSScreen.main?.frame ?? NSRect()
+        NSScreen.main?.frame ?? NSRect()
     }
     
     private var styleMask: NSWindow.StyleMask {
-        return [.miniaturizable, .closable, .resizable, .titled]
+        [.miniaturizable, .closable, .resizable, .titled]
+    }
+
+    private var contentViewController: NSViewController {
+        Assembly.assembly()
+    }
+
+    private var title: String {
+        "CFBundleDisplayName".appInfoLocalizable
     }
 
     // MARK: - Methods
@@ -29,15 +37,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.window = NSWindow(contentRect: contentRect, styleMask: styleMask, backing: .buffered, defer: false)
         guard let window = window else { return }
         window.center()
+        window.title = title
+        window.contentViewController = contentViewController
         window.makeKeyAndOrderFront(nil)
-        window.contentViewController = Assembly.assembly()
     }
 
-    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
-        return true
-    }
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool { return true }
 
-    func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
-        return true
-    }
+    func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool { return true }
 }
