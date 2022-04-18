@@ -7,7 +7,12 @@
 
 import Foundation
 
-protocol BusinessLogic: AnyObject {}
+protocol BusinessLogic: AnyObject {
+    func request(_ request: Models.InitialData.Request)
+    func request(_ request: Models.GoBack.Request)
+    func request(_ request: Models.GoHome.Request)
+    func request(_ request: Models.GoForward.Request)
+}
 
 final class Interactor {
     
@@ -24,4 +29,20 @@ final class Interactor {
 
 // MARK: - BusinessLogic
 
-extension Interactor: BusinessLogic {}
+extension Interactor: BusinessLogic {
+    func request(_ request: Models.InitialData.Request) {
+        presenter.present(Models.InitialData.Response())
+    }
+
+    func request(_ request: Models.GoBack.Request) {
+        presenter.present(Models.GoBack.Response())
+    }
+
+    func request(_ request: Models.GoHome.Request) {
+        presenter.present(Models.GoHome.Response())
+    }
+
+    func request(_ request: Models.GoForward.Request) {
+        presenter.present(Models.GoForward.Response())
+    }
+}
