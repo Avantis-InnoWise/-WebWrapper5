@@ -5,15 +5,6 @@
 //  Created by user on 15.04.22.
 //
 
-import Foundation
-
-protocol BusinessLogic: AnyObject {
-    func request(_ request: Models.InitialData.Request)
-    func request(_ request: Models.GoBack.Request)
-    func request(_ request: Models.GoHome.Request)
-    func request(_ request: Models.GoForward.Request)
-}
-
 final class Interactor {
     
     // MARK: - Properties

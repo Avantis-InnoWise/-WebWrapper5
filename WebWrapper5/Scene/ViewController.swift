@@ -8,13 +8,6 @@
 import Cocoa
 import WebKit
 
-protocol DisplayLogic: AnyObject {
-    func display(_ viewModel: Models.InitialData.ViewModel)
-    func display(_ viewModel: Models.GoBack.ViewModel)
-    func display(_ viewModel: Models.GoHome.ViewModel)
-    func display(_ viewModel: Models.GoForward.ViewModel)
-}
-
 final class ViewController: NSViewController {
     
     // MARK: - Nested Types
