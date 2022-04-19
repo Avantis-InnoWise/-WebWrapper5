@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  WebWrapper5
+
+  Created by user on 15.04.22.
+  
+*/
+
+"backButtonTitle" = "Back";
+"homeButtonTitle" = "Homepage";
+"forwardButtonTitle" = "Forward";

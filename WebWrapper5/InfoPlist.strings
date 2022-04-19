@@ -1,0 +1,14 @@
+/* 
+  InfoPlist.strings
+  WebWrapper5
+
+  Created by user on 15.04.22.
+  
+*/
+
+//Replace two string with the name of the project with new ones
+"CFBundleDisplayName" = "WebWrapper5";
+"CFBundleName" = "WebWrapper5";
+
+//Replace URL string with new one
+"url" = "https://wellhello.com/site/user/home?chatOpened=1";
