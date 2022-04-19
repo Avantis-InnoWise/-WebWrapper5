@@ -14,7 +14,7 @@ enum Models {
 
         struct ViewModel {
             let content: Content
-            let baseURL: URL?
+            let url: URL?
         }
     }
 
@@ -40,8 +40,8 @@ enum Models {
     }
     
     struct Content {
-        let bckTtl: String
-        let hmTtl: String
-        let frwrdTtl: String
+        let backButtonTitle: String
+        let homeButtonTitle: String
+        let forwardButtonTitle: String
     }
 }

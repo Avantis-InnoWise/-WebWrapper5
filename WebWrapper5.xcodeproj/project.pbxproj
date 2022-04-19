@@ -16,7 +16,7 @@
 		AD74C7B228095C450012A0B3 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD74C7B128095C450012A0B3 /* Interactor.swift */; };
 		AD74C7B628095C5B0012A0B3 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD74C7B528095C5B0012A0B3 /* Presenter.swift */; };
 		AD74C7B828095E190012A0B3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD74C7B728095E190012A0B3 /* main.swift */; };
-		AD74C7BC280960A70012A0B3 /* AppInfo.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD74C7BB280960A70012A0B3 /* AppInfo.strings */; };
+		AD82B774280F016500CC938E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD82B773280F016500CC938E /* InfoPlist.strings */; };
 		AD9C00BF280995D200B8D7FF /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9C00BE280995D200B8D7FF /* String+Extensions.swift */; };
 		AD9C00C1280998EB00B8D7FF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD9C00C0280998EB00B8D7FF /* Localizable.strings */; };
 		AD9C00C32809997600B8D7FF /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9C00C22809997600B8D7FF /* Models.swift */; };
@@ -36,7 +36,8 @@
 		AD74C7B128095C450012A0B3 /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
 		AD74C7B528095C5B0012A0B3 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 		AD74C7B728095E190012A0B3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		AD74C7BB280960A70012A0B3 /* AppInfo.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = AppInfo.strings; sourceTree = "<group>"; };
+		AD82B772280F00F200CC938E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD82B773280F016500CC938E /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		AD9C00BE280995D200B8D7FF /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		AD9C00C0280998EB00B8D7FF /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		AD9C00C22809997600B8D7FF /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
@@ -65,6 +66,7 @@
 				ADE45D2E28082CF100FE8C0C /* AppDelegate.swift */,
 				AD74C7B728095E190012A0B3 /* main.swift */,
 				ADE45D3728082CF200FE8C0C /* WebWrapper5.entitlements */,
+				AD82B772280F00F200CC938E /* Info.plist */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -135,7 +137,7 @@
 				AD74C7AE28095C170012A0B3 /* Scene */,
 				AD4729A7280DB86100DA5749 /* Extensions */,
 				AD4729A3280DB74200DA5749 /* Resources */,
-				AD74C7BB280960A70012A0B3 /* AppInfo.strings */,
+				AD82B773280F016500CC938E /* InfoPlist.strings */,
 			);
 			path = WebWrapper5;
 			sourceTree = "<group>";
@@ -201,7 +203,7 @@
 				ADE45D3328082CF200FE8C0C /* Assets.xcassets in Resources */,
 				AD9C00C1280998EB00B8D7FF /* Localizable.strings in Resources */,
 				AD23DA6A2809A8B600675185 /* Main.xib in Resources */,
-				AD74C7BC280960A70012A0B3 /* AppInfo.strings in Resources */,
+				AD82B774280F016500CC938E /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,6 +358,7 @@
 				DEVELOPMENT_TEAM = 9GYSSTNNN4;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WebWrapper5/App/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -382,6 +385,7 @@
 				DEVELOPMENT_TEAM = 9GYSSTNNN4;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WebWrapper5/App/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (

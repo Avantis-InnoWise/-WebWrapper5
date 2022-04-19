@@ -17,6 +17,6 @@ extension String {
     }
 
     var appInfoLocalizable: String {
-        NSLocalizedString(self, tableName: "AppInfo", comment: String.stringEmpty)
+        NSLocalizedString(self, tableName: "InfoPlist", comment: String.stringEmpty)
     }
 }
