@@ -13,9 +13,9 @@ final class ViewController: NSViewController {
     // MARK: - Nested Types
     
     private enum Constants {
-        static let threezero = 30.0
-        static let eightzero = 80.0
-        static let onetwozero = 120.0
+        static let inset = 30.0
+        static let buttonWidth = 80.0
+        static let goHomeButtonWidth = 120.0
     }
     
     // MARK: - Properties
@@ -24,17 +24,17 @@ final class ViewController: NSViewController {
     
     private var content: Models.Content? {
         didSet {
-            setupContent()
+            setupBttnContent()
         }
     }
     
     // MARK: - UI Properties
     
-    private let bckBtn = Button()
-    private let hmBtn = Button()
-    private let frwrdBtn = Button()
-    private let bx = BoxView()
-    private let wkWbVw = WKWebView()
+    private let goBackBttn = Button()
+    private let goHomeBttn = Button()
+    private let goForwardBttn = Button()
+    private let headerBox = BoxView()
+    private let wkWebView = WKWebView()
     
     // MARK: - Initialization
     
@@ -56,107 +56,89 @@ final class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureView()
+        configureUI()
         startSettings()
     }
     
     // MARK: - Private Methods
     
     private func startSettings() {
-        fetch()
+        interactor.request(Models.InitialData.Request())
     }
     
-    private func configureView() {
+    private func configureUI() {
         setupWkWebView()
         setupSubviews()
-        setupActions()
+        setupBttnActions()
     }
     
     private func setupWkWebView() {
-        wkWbVw.navigationDelegate = self
-        wkWbVw.translatesAutoresizingMaskIntoConstraints = false
+        wkWebView.navigationDelegate = self
+        wkWebView.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func setupSubviews() {
-        view.addSubviews([bx, wkWbVw])
-        bx.addSubviews([bckBtn, hmBtn, frwrdBtn])
+        view.addSubviews([headerBox, wkWebView])
+        headerBox.addSubviews([goBackBttn, goHomeBttn, goForwardBttn])
         
         NSLayoutConstraint.activate([
-            bx.widthAnchor.constraint(equalTo: view.widthAnchor),
-            bx.topAnchor.constraint(equalTo: view.topAnchor),
+            headerBox.widthAnchor.constraint(equalTo: view.widthAnchor),
+            headerBox.topAnchor.constraint(equalTo: view.topAnchor),
             
-            bckBtn.widthAnchor.constraint(equalToConstant: Constants.eightzero),
-            bckBtn.centerYAnchor.constraint(equalTo: bx.centerYAnchor),
-            bckBtn.leftAnchor.constraint(equalTo: bx.leftAnchor, constant: Constants.threezero),
+            goBackBttn.widthAnchor.constraint(equalToConstant: Constants.buttonWidth),
+            goBackBttn.centerYAnchor.constraint(equalTo: headerBox.centerYAnchor),
+            goBackBttn.leftAnchor.constraint(equalTo: headerBox.leftAnchor, constant: Constants.inset),
             
-            hmBtn.widthAnchor.constraint(equalToConstant: Constants.onetwozero),
-            hmBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            hmBtn.centerYAnchor.constraint(equalTo: bx.centerYAnchor),
+            goHomeBttn.widthAnchor.constraint(equalToConstant: Constants.goHomeButtonWidth),
+            goHomeBttn.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            goHomeBttn.centerYAnchor.constraint(equalTo: headerBox.centerYAnchor),
             
-            frwrdBtn.widthAnchor.constraint(equalToConstant: Constants.eightzero),
-            frwrdBtn.centerYAnchor.constraint(equalTo: bx.centerYAnchor),
-            frwrdBtn.rightAnchor.constraint(equalTo: bx.rightAnchor, constant: -Constants.threezero),
+            goForwardBttn.widthAnchor.constraint(equalToConstant: Constants.buttonWidth),
+            goForwardBttn.centerYAnchor.constraint(equalTo: headerBox.centerYAnchor),
+            goForwardBttn.rightAnchor.constraint(equalTo: headerBox.rightAnchor, constant: -Constants.inset),
             
-            wkWbVw.widthAnchor.constraint(equalTo: view.widthAnchor),
-            wkWbVw.topAnchor.constraint(equalTo: bx.bottomAnchor),
-            wkWbVw.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            wkWebView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            wkWebView.topAnchor.constraint(equalTo: headerBox.bottomAnchor),
+            wkWebView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
     
-    private func setupActions() {
-        bckBtn.action = #selector(setupBackButtonAction)
-        hmBtn.action = #selector(setupHomeButtonAction)
-        frwrdBtn.action = #selector(setupForwardButtonAction)
+    private func setupBttnActions() {
+        goBackBttn.action = #selector(setupGoBackButtonAction)
+        goHomeBttn.action = #selector(setupGoHomeButtonAction)
+        goForwardBttn.action = #selector(setupGoForwardButtonAction)
     }
     
-    private func setupContent() {
+    private func setupBttnContent() {
         guard
-            let bckTtl = content?.bckTtl,
-            let hmTtl = content?.hmTtl,
-            let frwrdTtl = content?.frwrdTtl
+            let backButtonTitle = content?.backButtonTitle,
+            let homeButtonTitle = content?.homeButtonTitle,
+            let forwardButtonTitle = content?.forwardButtonTitle
         else { return }
         
-        bckBtn.title = bckTtl
-        hmBtn.title = hmTtl
-        frwrdBtn.title = frwrdTtl
+        goBackBttn.title = backButtonTitle
+        goHomeBttn.title = homeButtonTitle
+        goForwardBttn.title = forwardButtonTitle
     }
     
-    private func open(_ url: URL?) {
+    private func goToURL(_ url: URL?) {
         DispatchQueue.main.async() {
             guard let url = url else { return }
-            self.wkWbVw.load(URLRequest(url: url))
+            self.wkWebView.load(URLRequest(url: url))
         }
     }
     
     // MARK: - Actions
     
-    @objc private func setupBackButtonAction() {
-        back()
-    }
-    
-    @objc private func setupHomeButtonAction() {
-        home()
-    }
-    
-    @objc private func setupForwardButtonAction() {
-        forward()
-    }
-    
-    // MARK: Interactor Methods
-    
-    func fetch() {
-        interactor.request(Models.InitialData.Request())
-    }
-    
-    func back() {
+    @objc private func setupGoBackButtonAction() {
         interactor.request(Models.GoBack.Request())
     }
     
-    func home() {
+    @objc private func setupGoHomeButtonAction() {
         interactor.request(Models.GoHome.Request())
     }
     
-    func forward() {
+    @objc private func setupGoForwardButtonAction() {
         interactor.request(Models.GoForward.Request())
     }
 }
@@ -166,19 +148,19 @@ final class ViewController: NSViewController {
 extension ViewController: DisplayLogic {
     func display(_ viewModel: Models.InitialData.ViewModel) {
         content = viewModel.content
-        open(viewModel.baseURL)
+        goToURL(viewModel.url)
     }
     
     func display(_ viewModel: Models.GoBack.ViewModel) {
-        wkWbVw.goBack()
+        wkWebView.goBack()
     }
     
     func display(_ viewModel: Models.GoHome.ViewModel) {
-        open(viewModel.url)
+        goToURL(viewModel.url)
     }
     
     func display(_ viewModel: Models.GoForward.ViewModel) {
-        wkWbVw.goForward()
+        wkWebView.goForward()
     }
 }
 
@@ -186,7 +168,7 @@ extension ViewController: DisplayLogic {
 
 extension ViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        bckBtn.isEnabled = webView.backForwardList.backList.isEmpty ? false : true
-        frwrdBtn.isEnabled = webView.backForwardList.forwardList.isEmpty ? false : true
+        goBackBttn.isEnabled = webView.backForwardList.backList.isEmpty ? false : true
+        goForwardBttn.isEnabled = webView.backForwardList.forwardList.isEmpty ? false : true
     }
 }

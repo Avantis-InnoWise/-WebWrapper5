@@ -27,17 +27,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Assembly.assembly()
     }
 
-    private var title: String {
-        "CFBundleDisplayName".appInfoLocalizable
-    }
-
     // MARK: - Methods
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         self.window = NSWindow(contentRect: contentRect, styleMask: styleMask, backing: .buffered, defer: false)
         guard let window = window else { return }
         window.center()
-        window.title = title
+        if let title = Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String {
+            window.title = title
+        }
         window.contentViewController = contentViewController
         window.makeKeyAndOrderFront(nil)
     }

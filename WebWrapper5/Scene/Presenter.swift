@@ -15,12 +15,12 @@ final class Presenter {
     
     private func process() -> Models.InitialData.ViewModel {
         let content = Models.Content(
-            bckTtl: "backButtonTitle".stringLocalizable,
-            hmTtl: "homeButtonTitle".stringLocalizable,
-            frwrdTtl: "forwardButtonTitle".stringLocalizable
+            backButtonTitle: "backButtonTitle".stringLocalizable,
+            homeButtonTitle: "homeButtonTitle".stringLocalizable,
+            forwardButtonTitle: "forwardButtonTitle".stringLocalizable
         )
         
-        return Models.InitialData.ViewModel(content: content, baseURL: Endpoint.baseURL)
+        return Models.InitialData.ViewModel(content: content, url: Endpoint.baseURL)
     }
 }
 
@@ -36,7 +36,8 @@ extension Presenter: PresentationLogic {
     }
     
     func present(_ response: Models.GoHome.Response) {
-        viewController?.display(Models.GoHome.ViewModel(url: Endpoint.baseURL))
+        let viewModel = Models.GoHome.ViewModel(url: Endpoint.baseURL)
+        viewController?.display(viewModel)
     }
     
     func present(_ response: Models.GoForward.Response) {
