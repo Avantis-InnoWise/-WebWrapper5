@@ -5,15 +5,6 @@
 //  Created by user on 15.04.22.
 //
 
-import Foundation
-
-protocol PresentationLogic: AnyObject {
-    func present(_ response: Models.InitialData.Response)
-    func present(_ response: Models.GoBack.Response)
-    func present(_ response: Models.GoHome.Response)
-    func present(_ response: Models.GoForward.Response)
-}
-
 final class Presenter {
     
     // MARK: - Properties

@@ -11,6 +11,7 @@
 		AD23DA6628099D4900675185 /* NSView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23DA6528099D4900675185 /* NSView+Extensions.swift */; };
 		AD23DA682809A1CE00675185 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23DA672809A1CE00675185 /* Endpoint.swift */; };
 		AD23DA6A2809A8B600675185 /* Main.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD23DA692809A8B600675185 /* Main.xib */; };
+		AD4729A6280DB78200DA5749 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4729A5280DB78200DA5749 /* Protocols.swift */; };
 		AD74C7B028095C350012A0B3 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD74C7AF28095C350012A0B3 /* Assembly.swift */; };
 		AD74C7B228095C450012A0B3 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD74C7B128095C450012A0B3 /* Interactor.swift */; };
 		AD74C7B628095C5B0012A0B3 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD74C7B528095C5B0012A0B3 /* Presenter.swift */; };
@@ -30,6 +31,7 @@
 		AD23DA6528099D4900675185 /* NSView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+Extensions.swift"; sourceTree = "<group>"; };
 		AD23DA672809A1CE00675185 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		AD23DA692809A8B600675185 /* Main.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Main.xib; sourceTree = "<group>"; };
+		AD4729A5280DB78200DA5749 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		AD74C7AF28095C350012A0B3 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
 		AD74C7B128095C450012A0B3 /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
 		AD74C7B528095C5B0012A0B3 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
@@ -57,15 +59,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AD4729A2280DB71C00DA5749 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				ADE45D2E28082CF100FE8C0C /* AppDelegate.swift */,
+				AD74C7B728095E190012A0B3 /* main.swift */,
+				ADE45D3728082CF200FE8C0C /* WebWrapper5.entitlements */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		AD4729A3280DB74200DA5749 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				ADE45D3228082CF200FE8C0C /* Assets.xcassets */,
+				AD23DA692809A8B600675185 /* Main.xib */,
+				AD9C00C0280998EB00B8D7FF /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		AD4729A4280DB76500DA5749 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AD23DA6328099C1000675185 /* Button.swift */,
+				AD9C00C428099B8200B8D7FF /* BoxView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AD4729A7280DB86100DA5749 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AD23DA6528099D4900675185 /* NSView+Extensions.swift */,
+				AD9C00BE280995D200B8D7FF /* String+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		AD74C7AE28095C170012A0B3 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				AD4729A4280DB76500DA5749 /* Views */,
 				AD74C7AF28095C350012A0B3 /* Assembly.swift */,
-				AD74C7B128095C450012A0B3 /* Interactor.swift */,
-				AD74C7B528095C5B0012A0B3 /* Presenter.swift */,
-				ADE45D3028082CF100FE8C0C /* ViewController.swift */,
-				AD9C00C22809997600B8D7FF /* Models.swift */,
 				AD23DA672809A1CE00675185 /* Endpoint.swift */,
+				AD74C7B128095C450012A0B3 /* Interactor.swift */,
+				AD9C00C22809997600B8D7FF /* Models.swift */,
+				AD74C7B528095C5B0012A0B3 /* Presenter.swift */,
+				AD4729A5280DB78200DA5749 /* Protocols.swift */,
+				ADE45D3028082CF100FE8C0C /* ViewController.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -89,18 +131,11 @@
 		ADE45D2D28082CF100FE8C0C /* WebWrapper5 */ = {
 			isa = PBXGroup;
 			children = (
+				AD4729A2280DB71C00DA5749 /* App */,
 				AD74C7AE28095C170012A0B3 /* Scene */,
-				ADE45D2E28082CF100FE8C0C /* AppDelegate.swift */,
-				ADE45D3228082CF200FE8C0C /* Assets.xcassets */,
-				ADE45D3728082CF200FE8C0C /* WebWrapper5.entitlements */,
-				AD74C7B728095E190012A0B3 /* main.swift */,
+				AD4729A7280DB86100DA5749 /* Extensions */,
+				AD4729A3280DB74200DA5749 /* Resources */,
 				AD74C7BB280960A70012A0B3 /* AppInfo.strings */,
-				AD9C00BE280995D200B8D7FF /* String+Extensions.swift */,
-				AD9C00C0280998EB00B8D7FF /* Localizable.strings */,
-				AD9C00C428099B8200B8D7FF /* BoxView.swift */,
-				AD23DA6328099C1000675185 /* Button.swift */,
-				AD23DA6528099D4900675185 /* NSView+Extensions.swift */,
-				AD23DA692809A8B600675185 /* Main.xib */,
 			);
 			path = WebWrapper5;
 			sourceTree = "<group>";
@@ -186,6 +221,7 @@
 				AD74C7B028095C350012A0B3 /* Assembly.swift in Sources */,
 				AD23DA6628099D4900675185 /* NSView+Extensions.swift in Sources */,
 				AD74C7B228095C450012A0B3 /* Interactor.swift in Sources */,
+				AD4729A6280DB78200DA5749 /* Protocols.swift in Sources */,
 				ADE45D2F28082CF100FE8C0C /* AppDelegate.swift in Sources */,
 				AD23DA682809A1CE00675185 /* Endpoint.swift in Sources */,
 				AD9C00C528099B8200B8D7FF /* BoxView.swift in Sources */,
@@ -313,7 +349,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = WebWrapper5/WebWrapper5.entitlements;
+				CODE_SIGN_ENTITLEMENTS = WebWrapper5/App/WebWrapper5.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -339,7 +375,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = WebWrapper5/WebWrapper5.entitlements;
+				CODE_SIGN_ENTITLEMENTS = WebWrapper5/App/WebWrapper5.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
